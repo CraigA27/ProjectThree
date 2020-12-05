@@ -10,12 +10,7 @@ const ShopBox = ({trainers, customers}) => {
         return trainer.brand.toLowerCase().includes(filter.toLowerCase())
     })
 
-    const handleChange = (e) => {
-        let propertyFilter = e.target.value;
-        let copiedFilter = {...filter};
-        copiedFilter = propertyFilter;
-        setFilter(copiedFilter);
-    }
+
 
     return(
 
