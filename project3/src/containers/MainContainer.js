@@ -1,7 +1,7 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import NavBar from '../components/NavBar';
-import TrainerContainer from './TrainerContainer';
+import ShopContainer from './ShopContainer';
 
 const MainContainer = () => {
     return(
@@ -9,7 +9,7 @@ const MainContainer = () => {
         <>
         <NavBar/>
         <Switch>
-        <Route path="/trainers" component={TrainerContainer} />
+        <Route path="/" component={ShopContainer} />
         </Switch>
         </>
         </Router>
