@@ -8,6 +8,7 @@ const CustomerBox = ({customers}) => {
         passWord: ""
     })
 
+
     // const checkLogInDetails
 
     const handleChange = function(event){
@@ -17,9 +18,17 @@ const CustomerBox = ({customers}) => {
         setUserInput(Input);
     }
 
+
+    const onUpdate = function(customer){
+        const request = new Request();
+        const url = "/customer/" + customer.id;
+        request.patch(url, customer)
+        .then(() => window.location = "/customer/" + customer.id)
+    }
+
     const handleSubmit = function(event){
         event.preventDefault();
-        let input = {... userInput}
+        let input = {...userInput}
         const index = customers.findIndex((customer) => {
             return customer.email === input.email
         })
@@ -30,15 +39,13 @@ const CustomerBox = ({customers}) => {
             request.get(url)
             .then(() => window.location = "/customer")
         }
+
         else{
             if(input.passWord === customers[index].passWord){
-                const updatedRequest = new Request()
-                const id = customers[index].id
-                const url = "/customer/" + id
-                updatedRequest.get(url)
-                .then(() => window.location = "/customer/" + id )
-
+                customers[index].loggedIn = true;
+                onUpdate(customers[index]);
             }
+
             else{
                 const request = new Request();
                 const url = "/customer";
@@ -47,7 +54,10 @@ const CustomerBox = ({customers}) => {
             }
         }
 
-        console.log(customers[index].name);
+
+      
+
+        
 
     }
 
