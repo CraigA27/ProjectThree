@@ -8,8 +8,6 @@ const CustomerBox = ({customers}) => {
         passWord: ""
     })
 
-    // const checkLogInDetails
-
     const handleChange = function(event){
         let propertyName = event.target.name;
         let Input = {...userInput}
@@ -23,7 +21,7 @@ const CustomerBox = ({customers}) => {
         <form>
             <input type="text" placeholder="enter email" name="email" onChange={handleChange} value={userInput.email} />
             <input type="text" placeholder="enter password" name="passWord" onChange={handleChange} value={userInput.passWord}/>
-            <button type="submit">Submit</button>
+            <button type="submit">Sign In</button>
         </form>
         </>
     )
