@@ -130,6 +130,10 @@ public class Customer {
         this.getCart().add(trainer);
     }
 
+    public void removeFromCart(Trainer trainer){
+        this.getCart().remove(trainer);
+    }
+
     public Order buy(){
         List<Trainer> trainersTobeBought = new ArrayList<>();
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
@@ -137,19 +141,17 @@ public class Customer {
         Order currentOrder = new Order(String.valueOf(currentDate), this);
         currentOrder.setShoes(this.getCart());
         this.setCart(trainersTobeBought);
-//        this.getPreviousOrders().add(currentOrder);
-
         return currentOrder;
     }
 
-    public void addOrder(Order order){
-        Order currentOrder = order;
-        this.getPreviousOrders().add(currentOrder);
-
-
-//        order.getTrainers().clear();
-
-    }
+//    public void addOrder(Order order){
+//        Order currentOrder = order;
+//        this.getPreviousOrders().add(currentOrder);
+//
+//
+////        order.getTrainers().clear();
+//
+//    }
 
 
 
