@@ -1,5 +1,6 @@
 package com.example.codeclan.project3_server.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -35,11 +36,13 @@ public class Trainer {
 
     @ElementCollection
     @CollectionTable(name = "colours", joinColumns = @JoinColumn(name = "trainer_id"))
+    @JsonIgnoreProperties({"colours", "shoes"})
     private List<String> colours;
 
 
     @ManyToMany
-    @JsonIgnoreProperties({"orders"})
+    @JsonIgnore
+    @JsonIgnoreProperties({"orders", "shoes"})
     @JoinTable(
             name = "trainers_orders",
             joinColumns = {
@@ -143,5 +146,9 @@ public class Trainer {
 
     public void setOrders(List<Order> orders) {
         this.orders = orders;
+    }
+
+    public void addColours(String colour){
+        this.getColours().add(colour);
     }
 }

@@ -19,12 +19,9 @@ public class TrainersController {
     @Autowired
     TrainerRepository trainerRepository;
 
-    @Autowired
-    OrderRepository orderRepository;
 
-
-    @GetMapping(value = "/orders")
-    public ResponseEntity<List<Order>> getAllTrainers(){
-        return new ResponseEntity<>(orderRepository.findAll(), HttpStatus.OK);
+    @GetMapping(value = "/trainers")
+    public ResponseEntity<List<Trainer>> getAllTrainers(){
+        return new ResponseEntity<>(trainerRepository.findAll(), HttpStatus.OK);
     }
 }
