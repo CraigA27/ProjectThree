@@ -1,9 +1,14 @@
 import React from 'react';
 
-const CustomerDetail = () => {
+const CustomerDetail = ({customer}) => {
+
+    if(!customer){
+        return <p>Loading....</p>
+    }
     return(
         <>
-        <h1>CustomerDetail</h1>
+        <h1>{customer.name}</h1>
+        <img src={customer.avatar} className="customer-avatar"></img>
         </>
     )
 }

@@ -5,6 +5,7 @@ import ShopBox from "../components/ShopBox"
 import TrainerDetail from "../components/trainers/TrainerDetail";
 import TrainerList from '../components/trainers/TrainerList';
 import CustomerBox from "../components/CustomerBox"
+import CustomerDetail from "../components/customers/CustomerDetail.js"
 
 const ShopContainer = () => {
 
@@ -29,6 +30,12 @@ const ShopContainer = () => {
         })
     }
 
+    const findCustomerById = function(id){
+        return customers.find((customer) => {
+            return customer.id === parseInt(id)
+        })
+    }
+
     useEffect(() => {
         requestAll()
     }, [])
@@ -38,19 +45,31 @@ const ShopContainer = () => {
             <>
             <Switch>
 
+
+
             <Route exact path="/trainers/:id" render={(props) => {
                 const id = props.match.params.id
                 const trainer = findTrainerById(id)
                 return <TrainerDetail trainer={trainer} />
             }} />
 
+            <Route exact path = "/customer/:id" render={(props) => {
+                const id = props.match.params.id
+                const customer = findCustomerById(id)
+                return <CustomerDetail customer={customer}  />
+            }} />
+
             <Route exact path="/customer" render={() => {
                 return <CustomerBox customers={customers} />
             }} />
 
+            
+
             <Route render={() => {
                 return <ShopBox trainers={trainers} />
             }} />
+
+            
 
            
 
