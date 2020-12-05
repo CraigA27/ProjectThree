@@ -139,6 +139,12 @@ public class DataLoader implements ApplicationRunner {
         Card hsbcCard = new Card("Visa", "4678845", "07/22", 129, cyril);
         cardRepository.save(hsbcCard);
         cyril.getCards().add(hsbcCard);
+
+        cyril.addToCart(gucci);
+        cyril.addToCart(balenciaga);
+        cyril.removeFromCart(balenciaga);
+        Order gucciOrder = cyril.buy();
+        orderRepository.save(gucciOrder);
         customerRepository.save(cyril);
 
 
