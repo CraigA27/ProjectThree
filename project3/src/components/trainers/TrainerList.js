@@ -1,6 +1,7 @@
 import React from "react";
 import Trainer from "./Trainer"
 
+
 const TrainerList = ({trainers}) => {
 
     const trainerNodes = trainers.map((trainer, index) => {
@@ -16,9 +17,14 @@ const TrainerList = ({trainers}) => {
 
 
     return(
+        
+        <>
+       
+
         <ul className="trainer-nodes">
          {trainerNodes}
         </ul>
+        </>
     )
 
 
