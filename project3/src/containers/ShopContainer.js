@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Request from "../helpers/request";
 import ShopBox from "../components/ShopBox"
-import TrainerDetail from "../components/trainers/Trainer"
+import TrainerDetail from "../components/trainers/TrainerDetail";
 import TrainerList from '../components/trainers/TrainerList';
 
 const ShopContainer = () => {
