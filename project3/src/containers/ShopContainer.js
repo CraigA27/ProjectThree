@@ -4,6 +4,7 @@ import Request from "../helpers/request";
 import ShopBox from "../components/ShopBox"
 import TrainerDetail from "../components/trainers/TrainerDetail";
 import TrainerList from '../components/trainers/TrainerList';
+import CustomerBox from "../components/CustomerBox"
 
 const ShopContainer = () => {
 
@@ -43,9 +44,15 @@ const ShopContainer = () => {
                 return <TrainerDetail trainer={trainer} />
             }} />
 
+            <Route exact path="/customer" render={() => {
+                return <CustomerBox customers={customers} />
+            }} />
+
             <Route render={() => {
                 return <ShopBox trainers={trainers} />
             }} />
+
+           
 
             </Switch>
             </>
