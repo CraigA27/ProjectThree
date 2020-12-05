@@ -11,7 +11,6 @@ const ShopBox = ({trainers, customers}) => {
     })
 
 
-
     return(
 
         <>
