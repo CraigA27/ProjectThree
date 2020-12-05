@@ -13,6 +13,8 @@ const TrainerList = ({trainers}) => {
         )
     })
 
+
+
     return(
         <ul className="trainer-nodes">
          {trainerNodes}
