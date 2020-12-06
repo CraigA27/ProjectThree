@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import TrainerList from "./trainers/TrainerList"
+import './trainers/Homepage.css'
 
 
 const ShopBox = ({trainers, customers}) => {
@@ -18,7 +19,7 @@ const ShopBox = ({trainers, customers}) => {
         type="search"
         placeholder="Search by brand"
         onChange={(e) => {setFilter(e.target.value)}}
-        />
+        className="search-bar"/>
         <TrainerList trainers={filteredTrainers} />
         </>
     )

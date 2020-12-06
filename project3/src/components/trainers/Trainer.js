@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import './Homepage.css'
 
 const Trainer = ({trainer}) => {
 
@@ -11,9 +12,12 @@ const Trainer = ({trainer}) => {
 
     return(
         <>
-            <Link to = {url}><img className="trainer-preview-image" src={trainer.image} /></Link>
-            <p> {trainer.name}</p>
-            <p> £{trainer.price}</p>
+        <div className="trainer">
+        <Link to = {url}><img className="trainer-preview-image" src={trainer.image} /></Link>
+            <p className="trainer-name"> {trainer.name}</p>
+            <p className="trainer-price"> £{trainer.price}</p>
+        </div>
+            
         </>
     )
 

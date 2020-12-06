@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Request from '../helpers/request';
+import "../Styling/Login.css"
 
 const CustomerBox = ({customers}) => {
 
@@ -64,10 +65,14 @@ const CustomerBox = ({customers}) => {
 
     return(
         <>
-        <form onSubmit={handleSubmit}>
+        
+        <form onSubmit={handleSubmit} className="login">
+            <label className="login-label">Email address</label>
             <input type="text" placeholder="enter email" name="email" onChange={handleChange} value={userInput.email} autoComplete="off" />
+
+            <label className="login-label">Password</label>
             <input type="text" placeholder="enter password" name="passWord" onChange={handleChange} value={userInput.passWord} autoComplete="off"/>
-            <button type="submit">Submit</button>
+            <button type="submit" className="submit-button">Log-in</button>
         </form>
         </>
     )
