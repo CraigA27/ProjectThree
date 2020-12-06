@@ -22,18 +22,18 @@ public class CustomerController {
         return new ResponseEntity<>(customerRepository.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping(value = "/customer/{id}")
+    @GetMapping(value = "/customers/{id}")
     public ResponseEntity<Optional<Customer>> getSpecificCustomer(@PathVariable Long id){
         return new ResponseEntity<>(customerRepository.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping(value = "/customer")
+    @PostMapping(value = "/customers")
     public ResponseEntity<Customer> postCustomer(@RequestBody Customer customer){
         customerRepository.save(customer);
         return new ResponseEntity<>(customer, HttpStatus.CREATED);
     }
 
-    @PatchMapping(value = "/customer/{id}")
+    @PatchMapping(value = "/customers/{id}")
     public ResponseEntity<Customer> updateCustomer(@RequestBody Customer customer){
         customerRepository.save(customer);
         return new ResponseEntity<>(customer, HttpStatus.OK);
