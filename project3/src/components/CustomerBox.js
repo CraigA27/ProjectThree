@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Request from '../helpers/request';
+import {Link} from 'react-router-dom';
 import "../Styling/Login.css"
 
 const CustomerBox = ({customers}) => {
@@ -20,14 +21,6 @@ const CustomerBox = ({customers}) => {
         setUserInput(Input);
     }
 
-
-    const onUpdate = function(customer){
-        const request = new Request();
-        const url = "/customers/" + customer.id;
-        request.patch(url, customer)
-        .then(() => window.location = "/customers/" + customer.id)
-    }
-
     const handleSubmit = function(event){
         event.preventDefault();
         let input = {...userInput}
@@ -41,7 +34,6 @@ const CustomerBox = ({customers}) => {
             request.get(url)
             .then(() => window.location = "/customers")
         }
-
         else{
             if(input.passWord === customers[index].passWord){
                 let customer = {...customers[index]}
@@ -49,6 +41,7 @@ const CustomerBox = ({customers}) => {
                 onUpdate(customer);
             }
 
+            
             else{
                 const request = new Request();
                 const url = "/customers";
@@ -57,12 +50,19 @@ const CustomerBox = ({customers}) => {
             }
         }
 
-
-      
-
-        
+        console.log(customers[index].name);
 
     }
+
+
+    const onUpdate = function(customer){
+        const request = new Request();
+        const url = "/customer/" + customer.id;
+        request.patch(url, customer)
+        .then(() => window.location = "/customer/" + customer.id)
+    }
+
+    const createUrl = "/customers/new"
 
 
     return(
@@ -76,6 +76,9 @@ const CustomerBox = ({customers}) => {
             <input type="text" placeholder="enter password" name="passWord" onChange={handleChange} value={userInput.passWord} autoComplete="off"/>
             <button type="submit" className="submit-button">Log-in</button>
         </form>
+        <Link to={createUrl}><button type="button">Create Account</button></Link>
+
+        
         </>
     )
 }

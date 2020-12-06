@@ -6,6 +6,7 @@ import TrainerDetail from "../components/trainers/TrainerDetail";
 import TrainerList from '../components/trainers/TrainerList';
 import CustomerBox from "../components/CustomerBox"
 import CustomerDetail from "../components/customers/CustomerDetail.js"
+import CustomerForm from '../components/customers/CustomerForm';
 
 const ShopContainer = () => {
 
@@ -36,10 +37,24 @@ const ShopContainer = () => {
         })
     }
 
+<<<<<<< HEAD
     const customerLoggedIn = customers.filter((customer) => {
         return customer.loggedIn === true;
     })
     
+=======
+    const handleCustomerPost = function(customer){
+        const request = new Request();
+        request.post("/customers", customer)
+        .then(() => window.location = "/")
+    }
+
+    const handleCustomerUpdate = function(customer){
+        const request = new Request();
+        request.patch("/customers" + customer.id, customer)
+        .then(() => window.location = "/customers/" + customer.id)
+    }
+>>>>>>> b2fb3c666c9a575d99c733c13ab9959973c016c2
 
     useEffect(() => {
         requestAll()
@@ -61,12 +76,27 @@ const ShopContainer = () => {
             <Route exact path = "/customers/:id" render={(props) => {
                 const id = props.match.params.id
                 const customer = findCustomerById(id)
-                return <CustomerDetail customer={customer}  />
+                return <CustomerDetail
+                 customer={customer}
+                 onUpdate={handleCustomerUpdate} />
+            }} />
+
+            
+            <Route exact path="/customers/new" render={() => {
+                return <CustomerForm onCreate={handleCustomerPost} />
+            }} />
+
+            <Route exact path="/customers/:id/edit" render={(props) => {
+                const id = props.match.params.id;
+                const customer = findCustomerById(id);
+                return <CustomerForm customer={customer} onUpdate={handleCustomerUpdate} />
             }} />
 
             <Route exact path="/customers" render={() => {
                 return <CustomerBox customers={customers} />
             }} />
+
+
 
             
 
