@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Request from '../helpers/request';
-import CustomerForm from './customers/CustomerForm'
+import {Link} from 'react-router-dom';
 import "../Styling/Login.css"
 
 const CustomerBox = ({customers}) => {
@@ -9,6 +9,7 @@ const CustomerBox = ({customers}) => {
         email: "",
         passWord: ""
     })
+
 
 
     // const checkLogInDetails
@@ -22,31 +23,30 @@ const CustomerBox = ({customers}) => {
 
     const handleSubmit = function(event){
         event.preventDefault();
-        let input = {... userInput}
+        let input = {...userInput}
         const index = customers.findIndex((customer) => {
             return customer.email === input.email
         })
 
         if(index === -1 ){
             const request = new Request();
-            const url = "/customer";
+            const url = "/customers";
             request.get(url)
-            .then(() => window.location = "/customer")
+            .then(() => window.location = "/customers")
         }
         else{
             if(input.passWord === customers[index].passWord){
-                const updatedRequest = new Request()
-                const id = customers[index].id
-                const url = "/customer/" + id
-                updatedRequest.get(url)
-                .then(() => window.location = "/customer/" + id )
-
+                let customer = {...customers[index]}
+                customer.loggedIn = true 
+                onUpdate(customer);
             }
+
+            
             else{
                 const request = new Request();
-                const url = "/customer";
+                const url = "/customers";
                 request.get(url)
-                .then(() => window.location = "/customer")
+                .then(() => window.location = "/customers")
             }
         }
 
@@ -62,34 +62,7 @@ const CustomerBox = ({customers}) => {
         .then(() => window.location = "/customer/" + customer.id)
     }
 
-    // const handleSubmit = function(event){
-    //     event.preventDefault();
-    //     let input = {...userInput}
-    //     const index = customers.findIndex((customer) => {
-    //         return customer.email === input.email
-    //     })
-
-    //     if(index === -1 ){
-    //         const request = new Request();
-    //         const url = "/customer";
-    //         request.get(url)
-    //         .then(() => window.location = "/customer")
-    //     }
-
-    //     else{
-    //         if(input.passWord === customers[index].passWord){
-    //             customers[index].loggedIn = true;
-    //             onUpdate(customers[index]);
-    //         }
-
-    //         else{
-    //             const request = new Request();
-    //             const url = "/customer";
-    //             request.get(url)
-    //             .then(() => window.location = "/customer")
-    //         }
-    //     }
-    // }
+    const createUrl = "/customers/new"
 
 
     return(
@@ -103,8 +76,9 @@ const CustomerBox = ({customers}) => {
             <input type="text" placeholder="enter password" name="passWord" onChange={handleChange} value={userInput.passWord} autoComplete="off"/>
             <button type="submit" className="submit-button">Log-in</button>
         </form>
+        <Link to={createUrl}><button type="button">Create Account</button></Link>
 
-        {/* <CustomerForm /> */}
+        
         </>
     )
 }

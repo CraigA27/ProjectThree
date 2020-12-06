@@ -1,17 +1,19 @@
 import React from 'react';
-import CustomerForm from './CustomerForm';
-
+import {Link} from 'react-router-dom';
 const CustomerDetail = ({customer, onUpdate}) => {
 
     if(!customer){
         return <p>Loading....</p>
     }
+
+    const editUrl = "/customers/" + customer.id + "/edit" 
     return(
         <>
         <h1>{customer.name}</h1>
         <img src={customer.avatar} className="customer-avatar"></img>
         {console.log(customer)}
-        <CustomerForm />
+        <Link to={editUrl}><button type="button">Edit Account</button></Link>
+
         </>
     )
 }

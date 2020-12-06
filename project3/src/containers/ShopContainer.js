@@ -40,13 +40,13 @@ const ShopContainer = () => {
     const handleCustomerPost = function(customer){
         const request = new Request();
         request.post("/customers", customer)
-        .then(() => window.location = "/customer")
+        .then(() => window.location = "/")
     }
 
     const handleCustomerUpdate = function(customer){
         const request = new Request();
         request.patch("/customers" + customer.id, customer)
-        .then(() => window.location = "/customer" + customer.id)
+        .then(() => window.location = "/customers/" + customer.id)
     }
 
     useEffect(() => {
@@ -75,11 +75,11 @@ const ShopContainer = () => {
             }} />
 
             
-            <Route exact path="customers/new" render={() => {
+            <Route exact path="/customers/new" render={() => {
                 return <CustomerForm onCreate={handleCustomerPost} />
             }} />
 
-            <Route exact path="customers/:id/edit" render={(props) => {
+            <Route exact path="/customers/:id/edit" render={(props) => {
                 const id = props.match.params.id;
                 const customer = findCustomerById(id);
                 return <CustomerForm customer={customer} onUpdate={handleCustomerUpdate} />
