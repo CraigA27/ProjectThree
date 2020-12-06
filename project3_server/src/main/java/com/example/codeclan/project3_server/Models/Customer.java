@@ -31,6 +31,9 @@ public class Customer {
     @Column(name = "avatar")
     private String avatar;
 
+    @Column(name = "loggedIn")
+    private Boolean loggedIn;
+
     @JsonIgnoreProperties({"customer"})
     @OneToMany(mappedBy = "customer")
     private List<Card> cards;
@@ -53,6 +56,7 @@ public class Customer {
         this.cards = new ArrayList<>();
         this.cart = new ArrayList<>();
         this.previousOrders = new ArrayList<>();
+        this.loggedIn = false;
     }
 
     public Customer() {
@@ -120,6 +124,14 @@ public class Customer {
 
     public void setPreviousOrders(List<Order> previousOrders) {
         this.previousOrders = previousOrders;
+    }
+
+    public Boolean getLoggedIn() {
+        return loggedIn;
+    }
+
+    public void setLoggedIn(Boolean loggedIn) {
+        this.loggedIn = loggedIn;
     }
 
     public void addCard(Card card){
