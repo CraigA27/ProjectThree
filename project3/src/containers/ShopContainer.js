@@ -37,12 +37,10 @@ const ShopContainer = () => {
         })
     }
 
-<<<<<<< HEAD
     const customerLoggedIn = customers.filter((customer) => {
         return customer.loggedIn === true;
     })
     
-=======
     const handleCustomerPost = function(customer){
         const request = new Request();
         request.post("/customers", customer)
@@ -54,7 +52,6 @@ const ShopContainer = () => {
         request.patch("/customers" + customer.id, customer)
         .then(() => window.location = "/customers/" + customer.id)
     }
->>>>>>> b2fb3c666c9a575d99c733c13ab9959973c016c2
 
     useEffect(() => {
         requestAll()
