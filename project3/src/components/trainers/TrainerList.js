@@ -1,5 +1,7 @@
 import React from "react";
 import Trainer from "./Trainer"
+// import "."
+import './Homepage.css'
 
 
 const TrainerList = ({trainers}) => {

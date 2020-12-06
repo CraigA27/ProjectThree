@@ -5,6 +5,8 @@ import ShopBox from "../components/ShopBox"
 import TrainerDetail from "../components/trainers/TrainerDetail";
 import TrainerList from '../components/trainers/TrainerList';
 import CustomerBox from "../components/CustomerBox"
+import CustomerDetail from "../components/customers/CustomerDetail.js"
+import CustomerForm from '../components/customers/CustomerForm';
 
 const ShopContainer = () => {
 
@@ -29,6 +31,24 @@ const ShopContainer = () => {
         })
     }
 
+    const findCustomerById = function(id){
+        return customers.find((customer) => {
+            return customer.id === parseInt(id)
+        })
+    }
+
+    const handleCustomerPost = function(customer){
+        const request = new Request();
+        request.post("/customers", customer)
+        .then(() => window.location = "/customer")
+    }
+
+    const handleCustomerUpdate = function(customer){
+        const request = new Request();
+        request.patch("/customers" + customer.id, customer)
+        .then(() => window.location = "/customer" + customer.id)
+    }
+
     useEffect(() => {
         requestAll()
     }, [])
@@ -38,19 +58,46 @@ const ShopContainer = () => {
             <>
             <Switch>
 
+
+
             <Route exact path="/trainers/:id" render={(props) => {
                 const id = props.match.params.id
                 const trainer = findTrainerById(id)
                 return <TrainerDetail trainer={trainer} />
             }} />
 
-            <Route exact path="/customer" render={() => {
+            <Route exact path = "/customers/:id" render={(props) => {
+                const id = props.match.params.id
+                const customer = findCustomerById(id)
+                return <CustomerDetail
+                 customer={customer}
+                 onUpdate={handleCustomerUpdate} />
+            }} />
+
+            
+            <Route exact path="customers/new" render={() => {
+                return <CustomerForm onCreate={handleCustomerPost} />
+            }} />
+
+            <Route exact path="customers/:id/edit" render={(props) => {
+                const id = props.match.params.id;
+                const customer = findCustomerById(id);
+                return <CustomerForm customer={customer} onUpdate={handleCustomerUpdate} />
+            }} />
+
+            <Route exact path="/customers" render={() => {
                 return <CustomerBox customers={customers} />
             }} />
+
+
+
+            
 
             <Route render={() => {
                 return <ShopBox trainers={trainers} />
             }} />
+
+            
 
            
 
