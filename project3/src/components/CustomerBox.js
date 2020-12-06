@@ -10,6 +10,7 @@ const CustomerBox = ({customers}) => {
     })
 
 
+
     // const checkLogInDetails
 
     const handleChange = function(event){
@@ -22,9 +23,9 @@ const CustomerBox = ({customers}) => {
 
     const onUpdate = function(customer){
         const request = new Request();
-        const url = "/customer/" + customer.id;
+        const url = "/customers/" + customer.id;
         request.patch(url, customer)
-        .then(() => window.location = "/customer/" + customer.id)
+        .then(() => window.location = "/customers/" + customer.id)
     }
 
     const handleSubmit = function(event){
@@ -36,22 +37,23 @@ const CustomerBox = ({customers}) => {
 
         if(index === -1 ){
             const request = new Request();
-            const url = "/customer";
+            const url = "/customers";
             request.get(url)
-            .then(() => window.location = "/customer")
+            .then(() => window.location = "/customers")
         }
 
         else{
             if(input.passWord === customers[index].passWord){
-                customers[index].loggedIn = true;
-                onUpdate(customers[index]);
+                let customer = {...customers[index]}
+                customer.loggedIn = true 
+                onUpdate(customer);
             }
 
             else{
                 const request = new Request();
-                const url = "/customer";
+                const url = "/customers";
                 request.get(url)
-                .then(() => window.location = "/customer")
+                .then(() => window.location = "/customers")
             }
         }
 

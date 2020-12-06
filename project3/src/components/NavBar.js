@@ -10,7 +10,7 @@ const NavBar = () => {
                         <a href="/">Home</a>
                     </li>
                     <li className="navLink">
-                        <a href="/customer">Sign In / Create Account</a>
+                        <a href="/customers">Sign In / Create Account</a>
                     </li>
                 </ul>
         </header>

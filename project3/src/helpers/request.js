@@ -23,7 +23,7 @@ class Request {
     patch(url, payload){
       return fetch(url, {
         method: "PATCH",
-        headers: {"Conent-Type": "application/json"},
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
       })
     }

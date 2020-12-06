@@ -53,13 +53,13 @@ const ShopContainer = () => {
                 return <TrainerDetail trainer={trainer} />
             }} />
 
-            <Route exact path = "/customer/:id" render={(props) => {
+            <Route exact path = "/customers/:id" render={(props) => {
                 const id = props.match.params.id
                 const customer = findCustomerById(id)
                 return <CustomerDetail customer={customer}  />
             }} />
 
-            <Route exact path="/customer" render={() => {
+            <Route exact path="/customers" render={() => {
                 return <CustomerBox customers={customers} />
             }} />
 
