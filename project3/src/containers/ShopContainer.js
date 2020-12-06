@@ -36,6 +36,11 @@ const ShopContainer = () => {
         })
     }
 
+    const customerLoggedIn = customers.filter((customer) => {
+        return customer.loggedIn === true;
+    })
+    
+
     useEffect(() => {
         requestAll()
     }, [])
@@ -50,7 +55,7 @@ const ShopContainer = () => {
             <Route exact path="/trainers/:id" render={(props) => {
                 const id = props.match.params.id
                 const trainer = findTrainerById(id)
-                return <TrainerDetail trainer={trainer} />
+                return <TrainerDetail trainer={trainer} customer = {customerLoggedIn[0]} />
             }} />
 
             <Route exact path = "/customers/:id" render={(props) => {
@@ -66,7 +71,7 @@ const ShopContainer = () => {
             
 
             <Route render={() => {
-                return <ShopBox trainers={trainers} />
+                return <ShopBox trainers={trainers} customer = {customerLoggedIn[0]}/>
             }} />
 
             
