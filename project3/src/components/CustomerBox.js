@@ -2,14 +2,22 @@ import React, { useState } from 'react';
 import Request from '../helpers/request';
 import {Link} from 'react-router-dom';
 import "../Styling/Login.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+
 
 const CustomerBox = ({customers}) => {
 
     const [userInput, setUserInput] = useState({
         email: "",
         passWord: ""
-    })
+    });
 
+    const [showPassWord, setShowPassWord] = useState(false);
+
+    const eyeIcon = <FontAwesomeIcon icon={faEye} />;
+    const eyeSlashIcon = <FontAwesomeIcon icon={faEyeSlash} />;
 
 
     // const checkLogInDetails
@@ -57,12 +65,24 @@ const CustomerBox = ({customers}) => {
             }
         }
 
-        console.log(customers[index].name);
+        // console.log(customers[index].name);
 
     }
 
+    let display = eyeIcon
+        if(!showPassWord === false){
+            display = eyeSlashIcon
+        }
 
-  
+    const togglePassWordVisibility = () => {
+        setShowPassWord(showPassWord ? false : true);
+    }
+
+
+
+    
+
+
 
     const createUrl = "/customers/new"
 
@@ -72,10 +92,11 @@ const CustomerBox = ({customers}) => {
         
         <form onSubmit={handleSubmit} className="login">
             <label className="login-label">Email address</label>
-            <input type="text" placeholder="enter email" name="email" onChange={handleChange} value={userInput.email} autoComplete="off" />
+            <input type="text" placeholder="enter email" name="email" required onChange={handleChange} value={userInput.email} autoComplete="off" />
 
             <label className="login-label">Password</label>
-            <input type="text" placeholder="enter password" name="passWord" onChange={handleChange} value={userInput.passWord} autoComplete="off"/>
+            <input type={showPassWord ? "text" : "password"} placeholder="enter password" name="passWord" required onChange={handleChange} value={userInput.passWord} autoComplete="off" />
+            <i onClick={togglePassWordVisibility}>{display}</i>
             <button type="submit" className="submit-button">Log-in</button>
             
         </form>
@@ -84,6 +105,8 @@ const CustomerBox = ({customers}) => {
 
         
         </>
+
+        
     )
 }
 

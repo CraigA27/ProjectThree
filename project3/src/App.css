@@ -1,6 +1,7 @@
-.App {
-  text-align: center;
-  margin: auto;
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Poppins:wght@300&display=swap');
+
+.app {
+  font-family: "PT Sans";
 }
 
 .nav-container{
