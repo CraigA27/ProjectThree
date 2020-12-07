@@ -17,9 +17,9 @@ const CustomerCart = ({customer}) => {
 
     
     else if(customer.cart.length === 0){
-        return <p>
+        return <h1 className="cart-empty">
             Cart Currently empty 	&#128546;
-        </p>
+        </h1>
     }
 
     const onChange = function(customer){

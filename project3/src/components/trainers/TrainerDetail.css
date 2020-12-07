@@ -75,3 +75,16 @@
     font-weight: bolder;
     transition: all 0.75s ease-out;
 }
+
+.purchase {
+    margin-top: 1rem;
+    width: 40%;
+    margin-left: 10%;
+    padding: 1rem 0rem;
+    background-color: #f54642;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: bolder;
+}
