@@ -7,6 +7,8 @@ import TrainerList from '../components/trainers/TrainerList';
 import CustomerBox from "../components/CustomerBox"
 import CustomerDetail from "../components/customers/CustomerDetail.js"
 import CustomerForm from '../components/customers/CustomerForm';
+import CustomerCart from "../components/customers/CustomerCart";
+
 
 const ShopContainer = () => {
 
@@ -37,16 +39,16 @@ const ShopContainer = () => {
         })
     }
 
-<<<<<<< HEAD
+
     const customerLoggedIn = customers.filter((customer) => {
         return customer.loggedIn === true;
     })
     
-=======
+
     const handleCustomerPost = function(customer){
         const request = new Request();
         request.post("/customers", customer)
-        .then(() => window.location = "/")
+        .then(() => window.location = "/customers/account")
     }
 
     const handleCustomerUpdate = function(customer){
@@ -54,7 +56,7 @@ const ShopContainer = () => {
         request.patch("/customers" + customer.id, customer)
         .then(() => window.location = "/customers/" + customer.id)
     }
->>>>>>> b2fb3c666c9a575d99c733c13ab9959973c016c2
+
 
     useEffect(() => {
         requestAll()
@@ -73,6 +75,20 @@ const ShopContainer = () => {
                 return <TrainerDetail trainer={trainer} customer = {customerLoggedIn[0]} />
             }} />
 
+
+            <Route exact path="/customers/new" render={() => {
+                return <CustomerForm onCreate={handleCustomerPost} />
+            }} />
+
+                <Route exact path = "/customers/account" render= {() => {
+                return <CustomerDetail  customer = {customerLoggedIn[0]}
+                onUpdate={handleCustomerUpdate}/>
+                }}/>
+
+            <Route exact path = "/customers/cart" render= {() => {
+                return <CustomerCart  customer = {customerLoggedIn[0]}/>
+                }}/>
+
             <Route exact path = "/customers/:id" render={(props) => {
                 const id = props.match.params.id
                 const customer = findCustomerById(id)
@@ -81,10 +97,10 @@ const ShopContainer = () => {
                  onUpdate={handleCustomerUpdate} />
             }} />
 
+
             
-            <Route exact path="/customers/new" render={() => {
-                return <CustomerForm onCreate={handleCustomerPost} />
-            }} />
+            
+
 
             <Route exact path="/customers/:id/edit" render={(props) => {
                 const id = props.match.params.id;
@@ -97,15 +113,11 @@ const ShopContainer = () => {
             }} />
 
 
-
-            
-
             <Route render={() => {
                 return <ShopBox trainers={trainers} customer = {customerLoggedIn[0]}/>
             }} />
 
             
-
            
 
             </Switch>
