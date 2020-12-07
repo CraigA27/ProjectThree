@@ -10,7 +10,7 @@ const CustomerCart = ({customer}) => {
 
 
     if(!customer){
-        return <p>
+        return <p className="login-message">
             Please Login
         </p>
     }
@@ -34,7 +34,7 @@ const CustomerCart = ({customer}) => {
             <li key={index} className="cart-item">
                 <div className="cart-item">
                     <Trainer trainer={trainer} />
-                    <button onClick={() => {deleteFromCart(trainer)}}>Remove from cart</button>
+                    <button className="remove-button" onClick={() => {deleteFromCart(trainer)}}>Remove from cart</button>
                 </div>
             </li>
             )
@@ -54,21 +54,22 @@ const CustomerCart = ({customer}) => {
         return currentSum + firstSum
     }, 0)
 
+
     
 
     return(
         <>
-                <Link to ="/"><button>Continue Shopping</button></Link>
-                <h1>
+                <Link to ="/"><button className="back-button">Continue Shopping</button></Link>
+                <h1 className="cart-heading">
                     Your Cart:
                 </h1>
 
-                <h3>Checkout: <Checkout customer={customer} price={subtotal}/></h3>
+                <h3 className="checkout-message">Checkout: &nbsp; <Checkout customer={customer} price={subtotal}/></h3>
                 <ul className="cart-list"> 
                     {customerTrainerNodes}
                 
                 </ul>
-                <h1>
+                <h1 className="total-message">
                     SubTotal: £{subtotal.toFixed(2)}
                 </h1>
             
