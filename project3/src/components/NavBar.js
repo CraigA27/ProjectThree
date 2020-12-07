@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
     const shoppingCart = <FontAwesomeIcon icon={faShoppingCart} />
+    const user = <FontAwesomeIcon icon={faUser} />
     return(
         <header className="nav-container">
             <div className="logo-container">
@@ -18,7 +19,7 @@ const NavBar = () => {
                         <a href="/customers/cart"><i>{shoppingCart}</i></a>
                     </li>
                     <li className="navLink">
-                        <a href="/customers/account">Your Account</a>
+                        <a href="/customers/account"><i>{user}</i></a>
                     </li>
                 </ul>
         </header>
