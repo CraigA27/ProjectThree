@@ -78,7 +78,7 @@
 
 .purchase {
     margin-top: 1rem;
-    width: 40%;
+    width: 30%;
     margin-left: 10%;
     padding: 1rem 0rem;
     background-color: #f54642;
@@ -87,4 +87,29 @@
     cursor: pointer;
     border-radius: 30px;
     font-weight: bolder;
+}
+
+.alert{
+    max-width: 200px;
+    background-color: coral;
+    padding: 5px;
+    border-radius: 3px;
+    margin: 20px 20px;
+}
+
+.back-button{
+    margin-top: 1rem;
+    margin-left: 20%;
+    padding: 10px 20px;
+    background-color: #f54642;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+.page-action{
+    display: flex;
+    justify-content: space-between;
 }

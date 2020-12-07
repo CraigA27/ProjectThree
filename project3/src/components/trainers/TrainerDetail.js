@@ -3,12 +3,14 @@ import { Link } from 'react-router-dom';
 import Request from '../../helpers/request';
 import './TrainerDetail.css'
 import StarRatingComponent from 'react-star-rating-component';
+import Popup from 'react-popup';
+import {Alert} from 'reactstrap';
 
 const TrainerDetail = ({trainer, customer}) => {
     const [card, setCard] = useState({})
     const [sneaker, setSneaker] = useState({})
     const [name, setName] = useState({})
-
+    const [alertOpen, setAlertOpen] = useState(false);
 
     useEffect(() => {
         if(trainer){
@@ -43,12 +45,14 @@ const TrainerDetail = ({trainer, customer}) => {
         const request = new Request();
         const url = "/customers/" + customer.id;
         request.patch(url, customer)
-        .then(() => console.log(customer.cart))
+        .then(() => Popup.alert("Item Added to cart"))
     }
 
     const addTrainerToCart = function(){
         if(customer){
             customer.cart.push(trainer);
+            setAlertOpen(true)
+            Popup.alert("Item Added to cart")
             onUpdate(customer);
         }
         
@@ -82,6 +86,10 @@ const TrainerDetail = ({trainer, customer}) => {
         
     }
 
+    const resetAlert = function(e){
+        setAlertOpen(false)
+    }
+
     const animateIn = function(e){
 
         if(card != null){
@@ -96,7 +104,10 @@ const TrainerDetail = ({trainer, customer}) => {
 
     return(
         <>
-        <Link to ="/"><button>Back</button></Link>
+        <div className="page-action">
+        <Link to ="/"><button className="back-button">Back</button></Link>
+        <Alert isOpen={alertOpen} toggle={resetAlert} className="alert">Item Added to Cart</Alert>
+        </div>
         <div className="detail-body">
             <div className="container" onMouseMove={transform} onMouseLeave={animateOut} onMouseEnter={animateIn}>
                 <div className="card" >
@@ -119,6 +130,8 @@ const TrainerDetail = ({trainer, customer}) => {
                 </div>
             </div>
             <button onClick={addTrainerToCart} className="purchase">Add to cart</button>
+
+            
         </div>
         </>
     )

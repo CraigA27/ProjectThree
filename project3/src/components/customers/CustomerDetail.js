@@ -14,7 +14,9 @@ import './order.css'
 const CustomerDetail = ({customer, onUpdate}) => {
 
     if(!customer){
-        return <p>Loading...</p>
+        return <p>
+            Login to View Your Details
+        </p>
     }
 
     const onChange = function(customer){
@@ -60,11 +62,7 @@ const CustomerDetail = ({customer, onUpdate}) => {
     })
 
 
-    if(!customer){
-        return <p>
-            Login to View Your Details
-        </p>
-    }
+    
 
 
 
@@ -80,12 +78,10 @@ const CustomerDetail = ({customer, onUpdate}) => {
 
         {console.log(customer)}
         <Link to={editUrl}><button type="button">Edit Account</button></Link>
-           
+
+        <h1 className="order-history-title">Order History</h1>   
         {orderNodes}
 
-        {/* <span style="font-size: 48px; color: Dodgerblue;">
-            <i class="fas fa-camera"></i>
-        </span> */}
         
 
         

@@ -57,3 +57,13 @@
     font-weight: bolder;
     margin-bottom: 3%;
   }
+
+  .order-history-title{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    font-weight: bolder;
+    font-size: 40px;
+  }
