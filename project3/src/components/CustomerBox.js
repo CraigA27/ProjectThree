@@ -21,6 +21,13 @@ const CustomerBox = ({customers}) => {
         setUserInput(Input);
     }
 
+    const onUpdate = function(customer){
+        const request = new Request();
+        const url = "/customers/" + customer.id;
+        request.patch(url, customer)
+        .then(() => window.location = "/customers/" + customer.id)
+    }
+
     const handleSubmit = function(event){
         event.preventDefault();
         let input = {...userInput}
@@ -55,12 +62,7 @@ const CustomerBox = ({customers}) => {
     }
 
 
-    const onUpdate = function(customer){
-        const request = new Request();
-        const url = "/customer/" + customer.id;
-        request.patch(url, customer)
-        .then(() => window.location = "/customer/" + customer.id)
-    }
+  
 
     const createUrl = "/customers/new"
 
@@ -75,8 +77,10 @@ const CustomerBox = ({customers}) => {
             <label className="login-label">Password</label>
             <input type="text" placeholder="enter password" name="passWord" onChange={handleChange} value={userInput.passWord} autoComplete="off"/>
             <button type="submit" className="submit-button">Log-in</button>
+            
         </form>
-        <Link to={createUrl}><button type="button">Create Account</button></Link>
+        
+        <Link to={createUrl} ><button type="button">Create Account</button></Link>
 
         
         </>

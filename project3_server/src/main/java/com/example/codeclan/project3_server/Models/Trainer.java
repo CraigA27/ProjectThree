@@ -39,6 +39,26 @@ public class Trainer {
     @JsonIgnoreProperties({"colours", "shoes"})
     private List<String> colours;
 
+    @ManyToMany
+    @JsonIgnore
+    @JoinTable(
+            name = "customers_trainers",
+            joinColumns = {
+                    @JoinColumn(
+                            name = "trainer_id",
+                            updatable = false
+                    )
+
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "customer_id",
+                            updatable = false
+                    )
+            }
+    )
+    private List<Customer> customers;
+
 
     @ManyToMany
     @JsonIgnore
@@ -142,6 +162,14 @@ public class Trainer {
 
     public List<Order> getOrders() {
         return orders;
+    }
+
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
     }
 
     public void setOrders(List<Order> orders) {

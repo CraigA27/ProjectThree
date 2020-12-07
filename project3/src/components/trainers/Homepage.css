@@ -12,6 +12,7 @@
     border: 1px solid lightgray;
     align-self: center;
     align-content: center;
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
 }
 
 .trainer-price{
@@ -39,6 +40,10 @@
 
 .trainer-preview-image:hover{
     transform: scale(1.2);
+}
+
+.trainer:hover{
+    background-color: lightskyblue;
 }
 
 .search-bar{

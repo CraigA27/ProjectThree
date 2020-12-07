@@ -50,7 +50,7 @@ public class DataLoader implements ApplicationRunner {
         nike.addColours("blue");
         nike.addColours("white");
 
-        Trainer adidas = new Trainer("https://m.media-amazon.com/images/I/313Jdc5K3zL.jpg", "adiddda", "Adidas",
+        Trainer adidas = new Trainer("https://footwearnews.com/wp-content/uploads/2018/03/yeezy-wave-runner-feature.jpg", "Adidas Yeezy Boost 700", "Adidas",
                 3.5, 5, 26);
 
         adidas.addColours("green");
@@ -68,8 +68,8 @@ public class DataLoader implements ApplicationRunner {
        trainerRepository.save(puma);
 
 
-       Trainer reebok = new Trainer("https://www.80scasualclassics.co.uk/images/reebok-classic-trainers-white-grey-blue-p13572-76403_zoom.jpg",
-               "Classic", "Reebok", 4.1, 50, 17.99);
+       Trainer reebok = new Trainer("https://assets.reebok.com/images/w_600,f_auto,q_auto/199e0823259d4f518204ab9e0014fe2a_9366/Club_C_85_Pride_Shoes_Multicolour_FX4772.jpg",
+               "Reebok Club C 85", "Reebok", 4.1, 50, 17.99);
 
        puma.addColours("red");
        puma.addColours("purple");
@@ -77,7 +77,7 @@ public class DataLoader implements ApplicationRunner {
        trainerRepository.save(reebok);
 
        Trainer nikeConverse = new Trainer("https://s3.amazonaws.com/nikeinc/assets/94445/All_Star_Disrupt_CX_Elevated_Black_square_1600.jpg?1583820644",
-               "Converse", "Nike", 4.9, 26, 32.99);
+               "Nike Converse", "Nike", 4.9, 26, 32.99);
 
        nikeConverse.addColours("black");
        nikeConverse.addColours("grey");
@@ -119,6 +119,13 @@ public class DataLoader implements ApplicationRunner {
        balenciagaSpeeders.addColours("black");
        balenciagaSpeeders.addColours("white");
        trainerRepository.save(balenciagaSpeeders);
+
+       Trainer umbro = new Trainer("https://www.umbro.co.uk/uploads/images/products/large/umbro_djogger_1556638238UMFL0064Z1D_1.jpg",
+               "Umbro D Jogger", "Umbro", 3.9, 56, 59.90);
+
+       umbro.addColours("yellow");
+       umbro.addColours("light blue");
+       trainerRepository.save(umbro);
 
 
         Customer cyril = new Customer("Cyril Ishabiyi", "cyril@outlook.com", "comeUp", "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/111554483/original/83d513acbc4b3716c9a474086bb633a5de3c2d74/create-social-media-avatars-in-minimalist-style.jpg");
