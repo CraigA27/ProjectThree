@@ -27,3 +27,52 @@
     font-weight: lighter;
     font-size: 64px;
 }
+
+.cart-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+}
+
+.checkout-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+}
+
+.total-message {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+}
+
+.remove-button {
+    margin-top: 1rem;
+    margin-left: 150px;
+    width: 150px;
+    padding: 1rem 0rem;
+    background-color: #f54642;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: bolder;
+}
+
+.back-button {
+    margin-top: 1rem;
+    margin-left: 1rem;
+    padding: 10px 20px;
+    background-color: #f54642;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bolder;
+}
