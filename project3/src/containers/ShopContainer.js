@@ -37,10 +37,14 @@ const ShopContainer = () => {
         })
     }
 
+    const customerLoggedIn = customers.filter((customer) => {
+        return customer.loggedIn === true;
+    })
+    
     const handleCustomerPost = function(customer){
         const request = new Request();
         request.post("/customers", customer)
-        .then(() => window.location = "/")
+        .then(() => window.location = "/customers")
     }
 
     const handleCustomerUpdate = function(customer){

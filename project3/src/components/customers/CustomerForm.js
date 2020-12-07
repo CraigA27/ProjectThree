@@ -40,11 +40,7 @@ const CustomerForm = ({customer, onCreate, onUpdate}) => {
 
     const handleSubmit = function(event){
         event.preventDefault();
-        if(stateCustomer.id){
-            onUpdate(stateCustomer)
-        } else {
-            onCreate(stateCustomer)
-        }
+        onCreate(stateCustomer)    
     }
 
     return(

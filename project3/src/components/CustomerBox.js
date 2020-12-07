@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Request from '../helpers/request';
 import {Link} from 'react-router-dom';
 import "../Styling/Login.css"
+import CustomerForm from './customers/CustomerForm'
 
 const CustomerBox = ({customers}) => {
 
@@ -57,9 +58,9 @@ const CustomerBox = ({customers}) => {
 
     const onUpdate = function(customer){
         const request = new Request();
-        const url = "/customer/" + customer.id;
+        const url = "/customers/" + customer.id;
         request.patch(url, customer)
-        .then(() => window.location = "/customer/" + customer.id)
+        .then(() => window.location = "/customers/" + customer.id)
     }
 
     const createUrl = "/customers/new"
@@ -77,6 +78,7 @@ const CustomerBox = ({customers}) => {
             <button type="submit" className="submit-button">Log-in</button>
         </form>
         <Link to={createUrl}><button type="button">Create Account</button></Link>
+        <CustomerForm />
 
         
         </>
