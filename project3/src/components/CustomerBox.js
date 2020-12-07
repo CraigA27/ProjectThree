@@ -98,7 +98,7 @@ const CustomerBox = ({customers}) => {
             <label className="login-label">Password</label>
             <input type={showPassWord ? "text" : "password"} placeholder="enter password" name="passWord" required onChange={handleChange} value={userInput.passWord} autoComplete="off" />
             <i onClick={togglePassWordVisibility}>{display}</i>
-            <button type="submit" className="login-button">Log-in</button>
+            <button type="submit" className="login-button">Sign-In</button>
             <p>Don't have an account? Sign up!</p>
             <Link to={createUrl} ><button type="button" className="signup-button">Create Account</button></Link>
             

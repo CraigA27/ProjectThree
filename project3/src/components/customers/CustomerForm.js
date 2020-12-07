@@ -66,7 +66,7 @@ const CustomerForm = ({customer, onCreate, onUpdate}) => {
 
     return(
         <>
-        <h3>{heading}</h3>
+        <h3 className="heading">{heading}</h3>
         <form onSubmit={handleSubmit} className="container-login">
             <label>Name</label>
             <input type ="text" placeholder="enter your name" name="name" onChange={handleChange} value={stateCustomer.name} required autoComplete="off" />

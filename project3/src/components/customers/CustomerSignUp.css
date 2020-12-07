@@ -73,3 +73,8 @@ label{
     height: 265px;
     width: 300px
 }
+
+.heading{
+    display: flex;
+    align-items: center;
+}
