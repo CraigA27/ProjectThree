@@ -164,9 +164,9 @@ public class Customer {
 
     public Order buy(){
         List<Trainer> trainersTobeBought = new ArrayList<>();
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
         LocalDateTime currentDate = LocalDateTime.now();
-        Order currentOrder = new Order(String.valueOf(currentDate), this);
+        Order currentOrder = new Order(String.valueOf(currentDate.toLocalDate()), this);
         currentOrder.setShoes(this.getCart());
         this.setCart(trainersTobeBought);
         return currentOrder;

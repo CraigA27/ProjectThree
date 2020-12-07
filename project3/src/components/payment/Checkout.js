@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 import Request from '../../helpers/request';
 
@@ -7,6 +7,12 @@ const Checkout = ({customer, price}) => {
     const payCurrency = "GBP"
 
     const amount = price * 100;
+    let currentDate = new Date();
+    const [order, setOrder] = useState({
+        date: currentDate.toLocaleDateString(),
+        customer: customer,
+        shoes: []
+    })
 
     const onChange = function(customer){
         const request = new Request();
@@ -15,9 +21,19 @@ const Checkout = ({customer, price}) => {
         .then(() => window.location = "/customers/cart")
     }
 
+    const onPost = function(order){
+        const request = new Request();
+        request.post("/orders", order)
+        .then((order) => {customer.previousOrders.push(order)})
+        .then(() => customer.cart = [])
+        .then(() => onChange(customer))
+    }
+
     const onToken = function(token, addresses){
-        customer.cart = [];
-        onChange(customer)
+        for(let trainer of customer.cart){
+            order.shoes.push(trainer)
+        }
+        onPost(order)
         console.log(token, addresses)
     }
     return(

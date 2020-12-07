@@ -1,0 +1,59 @@
+.order-details {
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 22.3px 17.9px rgba(0, 0, 0, 0.072),
+    0 41.8px 33.4px rgba(0, 0, 0, 0.086),
+    0 100px 80px rgba(0, 0, 0, 0.12);
+    
+    min-height: 100px;
+    width: 50vw;
+    margin: 100px auto;
+    background: white;
+    border-radius: 5px;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    color: gray;
+    font-weight: bolder;
+   
+  }
+  
+  
+  /* body {
+    background: #EEF2F7;
+  } */
+
+  .order-image{
+
+    width: 100px;
+    height: 100px;
+  }
+
+  .order-details:hover{
+      background-color: lightsalmon;
+  }
+
+  .trainer-order-image{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .buy-again{
+
+    margin-top: 1rem;
+    width: 100%;
+    padding: 1rem 0rem;
+    background-color: #f54642;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: bolder;
+    margin-bottom: 3%;
+  }
