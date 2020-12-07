@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import Request from '../../helpers/request';
+import './CustomerSignUp.css'
 
 const CustomerForm = ({customer, onCreate, onUpdate}) => {
 
@@ -60,11 +61,14 @@ const CustomerForm = ({customer, onCreate, onUpdate}) => {
     return(
         <>
         <h3>{heading}</h3>
-        <form onSubmit={handleSubmit}>
-            <input type ="text" placeholder="enter your name" name="name" onChange={handleChange} value={stateCustomer.name} />
-            <input type ="text" placeholder="enter your email" name="email" onChange={handleChange} value={stateCustomer.email} />
-            <input type ="text" placeholder="enter your password" name="passWord" onChange={handleChange} value={stateCustomer.passWord} />
-            <button type="submit">{buttonText}</button>
+        <form onSubmit={handleSubmit} className="container">
+            <label>Name</label>
+            <input type ="text" placeholder="enter your name" name="name" onChange={handleChange} value={stateCustomer.name} required autoComplete="off" />
+            <label>Email</label>
+            <input type ="text" placeholder="enter your email" name="email" onChange={handleChange} value={stateCustomer.email} required autoComplete="off" />
+            <label>Password</label>
+            <input type ="text" placeholder="enter your password" name="passWord" onChange={handleChange} value={stateCustomer.passWord} required autoComplete="off"/>
+            <button type="submit" className="signup-button">{buttonText}</button>
         </form>
         </>
     )

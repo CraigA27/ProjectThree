@@ -10,6 +10,7 @@ const Trainer = ({trainer}) => {
 
     const url = "/trainers/" + trainer.id
 
+
     return(
         <>
         <div className="trainer">
