@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Request from '../../helpers/request';
 import './TrainerDetail.css'
 import StarRatingComponent from 'react-star-rating-component';
-import Popup from 'react-popup';
 import {Alert} from 'reactstrap';
 
 const TrainerDetail = ({trainer, customer}) => {
@@ -45,14 +44,13 @@ const TrainerDetail = ({trainer, customer}) => {
         const request = new Request();
         const url = "/customers/" + customer.id;
         request.patch(url, customer)
-        .then(() => Popup.alert("Item Added to cart"))
+        .then(() => console.log("Item Added to cart"))
     }
 
     const addTrainerToCart = function(){
         if(customer){
             customer.cart.push(trainer);
             setAlertOpen(true)
-            Popup.alert("Item Added to cart")
             onUpdate(customer);
         }
         
