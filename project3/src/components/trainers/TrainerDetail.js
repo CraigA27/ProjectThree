@@ -63,6 +63,7 @@ const TrainerDetail = ({trainer, customer}) => {
         
         if(card !== null){
             card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+
         }
         
         
@@ -86,7 +87,7 @@ const TrainerDetail = ({trainer, customer}) => {
         if(card != null){
             card.style.transition = 'none';
             name.style.transform = "translateZ(150px)";
-            sneaker.style.transform = "translateZ(250px) rotateZ(-45deg)";
+            sneaker.style.transform = "translateZ(250px)";
         }
         
         
@@ -113,28 +114,12 @@ const TrainerDetail = ({trainer, customer}) => {
                         starCount={5}
                         value={trainer.rating}
                         /></p>
-                        <button onClick={addTrainerToCart} className="purchase">Add to cart</button>
+                        {/* <button onClick={addTrainerToCart} className="purchase">Add to cart</button> */}
                     </div>
                 </div>
             </div>
+            <button onClick={addTrainerToCart} className="purchase">Add to cart</button>
         </div>
-        {/* <div className="trainer-details-container">
-            <img className="trainer-details-image" src={trainer.image}/>
-
-            <p>{trainer.name}</p>
-            <p>{trainer.brand}</p>
-            <p>£{trainer.price}</p>
-            <p>Rating - {trainer.rating}</p>
-            <p>Stock count: {trainer.quantityAvailable}</p>
-            <form>
-                <select className="trainer-colour-select">
-                    {trainerColours}
-                </select>
-            </form>
-
-            <button onClick={addTrainerToCart}>Add to cart</button>
-           {console.log(customer)}
-        </div> */}
         </>
     )
 }

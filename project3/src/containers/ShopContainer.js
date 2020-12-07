@@ -39,7 +39,6 @@ const ShopContainer = () => {
         })
     }
 
-
     const customerLoggedIn = customers.filter((customer) => {
         return customer.loggedIn === true;
     })

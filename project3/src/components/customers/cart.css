@@ -15,5 +15,15 @@
 
 .cart-item{
     width: 400px;
-    /* height: 300px; */
+}
+
+.cart-empty{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    align-self: center;
+    margin-top: 10%;
+    font-weight: lighter;
+    font-size: 64px;
 }
