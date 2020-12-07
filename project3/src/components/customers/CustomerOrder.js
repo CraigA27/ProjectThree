@@ -27,7 +27,7 @@ const CustomerOrder = ({order}) => {
         <>
             <p>Date: {order.date}</p>
             <p>Amount Spent: £{orderTotal}</p>
-            <p className="trainer-order-image">Trainers Purchased: {orderNames} </p>
+            <p className="trainer-order-image">Trainers Purchased: &nbsp; &nbsp; {orderNames} </p>
              
 
         </>

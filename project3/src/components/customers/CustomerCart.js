@@ -4,10 +4,16 @@ import Request from '../../helpers/request'
 import Trainer from '../trainers/Trainer'
 import './cart.css'
 import Checkout from '../payment/Checkout'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash  } from "@fortawesome/free-solid-svg-icons";
+
+
+
 
 const CustomerCart = ({customer}) => {
 
-
+    const trash = <FontAwesomeIcon icon={faTrash} />
+    
 
     if(!customer){
         return <p className="login-message">
@@ -34,7 +40,8 @@ const CustomerCart = ({customer}) => {
             <li key={index} className="cart-item">
                 <div className="cart-item">
                     <Trainer trainer={trainer} />
-                    <button className="remove-button" onClick={() => {deleteFromCart(trainer)}}>Remove from cart</button>
+                   
+                    <button className="remove-button" onClick={() => {deleteFromCart(trainer)}}>Remove from cart <i>{trash}</i></button>
                 </div>
             </li>
             )

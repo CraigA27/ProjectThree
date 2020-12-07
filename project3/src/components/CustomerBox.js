@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Request from '../helpers/request';
 import {Link} from 'react-router-dom';
 import "../Styling/Login.css"
+import './customers/CustomerSignUp.css'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
@@ -97,9 +98,9 @@ const CustomerBox = ({customers}) => {
             <label className="login-label">Password</label>
             <input type={showPassWord ? "text" : "password"} placeholder="enter password" name="passWord" required onChange={handleChange} value={userInput.passWord} autoComplete="off" />
             <i onClick={togglePassWordVisibility}>{display}</i>
-            <button type="submit" className="submit-button">Log-in</button>
+            <button type="submit" className="login-button">Log-in</button>
             <p>Don't have an account? Sign up!</p>
-            <Link to={createUrl} ><button type="button" className="submit-button">Create Account</button></Link>
+            <Link to={createUrl} ><button type="button" className="signup-button">Create Account</button></Link>
             
         </form>
         
