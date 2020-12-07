@@ -58,18 +58,36 @@ const CustomerForm = ({customer, onCreate, onUpdate}) => {
         }
     }
 
+    const setAvatar = function(avatarLink){
+        let input = {...stateCustomer}
+        input.avatar = avatarLink;
+        setStateCustomer(input);
+    }
+
     return(
         <>
         <h3>{heading}</h3>
-        <form onSubmit={handleSubmit} className="container">
+        <form onSubmit={handleSubmit} className="container-login">
             <label>Name</label>
             <input type ="text" placeholder="enter your name" name="name" onChange={handleChange} value={stateCustomer.name} required autoComplete="off" />
             <label>Email</label>
             <input type ="text" placeholder="enter your email" name="email" onChange={handleChange} value={stateCustomer.email} required autoComplete="off" />
             <label>Password</label>
             <input type ="text" placeholder="enter your password" name="passWord" onChange={handleChange} value={stateCustomer.passWord} required autoComplete="off"/>
+            
             <button type="submit" className="signup-button">{buttonText}</button>
         </form>
+        
+        <h3>Select an Avatar</h3>
+        <img src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png" onClick={() => {
+                setAvatar("https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png" )
+            }} className="batman-avatar"></img>
+
+        <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png" onClick={() => {setAvatar("https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png")}}></img>
+
+
+        <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-373-456325.png" onClick={() => setAvatar("https://cdn.iconscout.com/icon/free/png-512/avatar-373-456325.png")} className="green-avatar-female">
+        </img>
         </>
     )
 }

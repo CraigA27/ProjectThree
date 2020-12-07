@@ -98,10 +98,12 @@ const CustomerBox = ({customers}) => {
             <input type={showPassWord ? "text" : "password"} placeholder="enter password" name="passWord" required onChange={handleChange} value={userInput.passWord} autoComplete="off" />
             <i onClick={togglePassWordVisibility}>{display}</i>
             <button type="submit" className="submit-button">Log-in</button>
+            <p>Don't have an account? Sign up!</p>
+            <Link to={createUrl} ><button type="button" className="submit-button">Create Account</button></Link>
             
         </form>
         
-        <Link to={createUrl} ><button type="button">Create Account</button></Link>
+       
 
         
         </>

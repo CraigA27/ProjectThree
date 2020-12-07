@@ -128,7 +128,7 @@ public class DataLoader implements ApplicationRunner {
        trainerRepository.save(umbro);
 
 
-        Customer cyril = new Customer("Cyril Ishabiyi", "cyril@outlook.com", "comeUp", "https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/111554483/original/83d513acbc4b3716c9a474086bb633a5de3c2d74/create-social-media-avatars-in-minimalist-style.jpg");
+        Customer cyril = new Customer("Cyril Ishabiyi", "cyril@outlook.com", "comeUp", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCwiNUolGE_ybMJdnOfdtkwG0knyyporBK6A&usqp=CAU");
         customerRepository.save(cyril);
 
 
