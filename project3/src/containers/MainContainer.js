@@ -6,12 +6,12 @@ import ShopContainer from './ShopContainer';
 const MainContainer = () => {
     return(
         <Router>
-        <>
+        <div className="app">
         <NavBar/>
         <Switch>
         <Route path="/" component={ShopContainer} />
         </Switch>
-        </>
+        </div>
         </Router>
     )
     
