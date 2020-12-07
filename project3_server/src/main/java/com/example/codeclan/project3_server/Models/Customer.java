@@ -1,6 +1,7 @@
 package com.example.codeclan.project3_server.Models;
 
 import com.example.codeclan.project3_server.Repository.OrderRepository;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -38,9 +39,24 @@ public class Customer {
     @OneToMany(mappedBy = "customer")
     private List<Card> cards;
 
-    @ElementCollection
-    @CollectionTable(name = "carts", joinColumns = @JoinColumn(name = "customer_id"))
+    @ManyToMany
     @JsonIgnoreProperties({"orders"})
+    @JoinTable(
+            name = "customers_trainers",
+            joinColumns = {
+                    @JoinColumn(
+                            name = "customer_id",
+                            updatable = false
+                    )
+
+            },
+            inverseJoinColumns = {
+                    @JoinColumn(
+                            name = "trainer_id",
+                            updatable = false
+                    )
+            }
+    )
     private List<Trainer> cart;
 
     @JsonIgnoreProperties({"customer"})

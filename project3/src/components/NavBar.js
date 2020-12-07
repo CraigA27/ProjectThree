@@ -12,6 +12,12 @@ const NavBar = () => {
                     <li className="navLink">
                         <a href="/customers">Sign In / Create Account</a>
                     </li>
+                    <li className="navLink">
+                        <a href="/customers/cart">Cart Details</a>
+                    </li>
+                    <li className="navLink">
+                        <a href="/customers/account">Your Account</a>
+                    </li>
                 </ul>
         </header>
     )
