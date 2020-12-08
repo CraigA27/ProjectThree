@@ -26,8 +26,15 @@
 
 .navLink > a {
   text-decoration: none;
-  color: rgb(99, 99, 99);
+  color: grey
 }
+
+.navLink > a:hover{
+  color: #f54642;
+  cursor: pointer;
+}
+
+
 
 .header-logo {
   width: 100px;
