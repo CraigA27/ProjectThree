@@ -67,12 +67,10 @@ const CustomerCart = ({customer}) => {
     return(
         <>
                 <Link to ="/"><button className="back-button">Continue Shopping</button></Link>
-                <h1 className="cart-heading">
-                    Your Cart:&nbsp;
-                    <h1 className="total-message">
+                <h1 className="total-message">
                     SubTotal: £{subtotal.toFixed(2)}
                 </h1>
-                </h1>
+               
 
                 <h3 className="checkout-message">Checkout: &nbsp; <Checkout customer={customer} price={subtotal}/></h3>
                 <ul className="cart-list"> 

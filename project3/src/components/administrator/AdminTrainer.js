@@ -43,29 +43,28 @@ const AdminTrainer = ({administrator, trainers}) => {
 
     return(
        <>
-       <div className="admin-view">
+       <div className="admin-trainer-view">
             <form  className="add-a-trainer" onSubmit={handleSubmit}>
-            <label className="login-label">Image</label>
-                <input type="text" placeholder="Trainer Image" name="image" onChange = {handleChange} required value={currentTrainer.image}  autoComplete="off" />
+                <label className="login-label">Image</label>
+                    <input type="text" placeholder="Trainer Image" name="image" onChange = {handleChange} required value={currentTrainer.image}  autoComplete="off" />
 
 
-                <label className="login-label">Name</label>
-                <input type="text" placeholder="Trainer Name" name="name" onChange = {handleChange} required value={currentTrainer.name}  autoComplete="off" />
+                    <label className="login-label">Name</label>
+                    <input type="text" placeholder="Trainer Name" name="name" onChange = {handleChange} required value={currentTrainer.name}  autoComplete="off" />
 
-                <label className="login-label">Brand</label>
-                <input type="text" placeholder="Trainer Brand" name="brand" onChange = {handleChange} required value={currentTrainer.brand}  autoComplete="off" />
+                    <label className="login-label">Brand</label>
+                    <input type="text" placeholder="Trainer Brand" name="brand" onChange = {handleChange} required value={currentTrainer.brand}  autoComplete="off" />
             
-                <label className="login-label">Rating</label>
-                <input type="number" placeholder="Trainer Rating" name="rating" onChange = {handleChange} required value={currentTrainer.rating}  autoComplete="off" />
+                    <label className="login-label">Rating</label>
+                    <input type="number" placeholder="Trainer Rating" name="rating" onChange = {handleChange} required value={currentTrainer.rating}  autoComplete="off" />
 
-                {/* <label className="login-label">Quantity</label>
-                <input type="number" placeholder="Trainer quantity" name="quantity Available" onChange = {handleChange} required value={currentTrainer.quantityAvailable}  autoComplete="off" /> */}
+                    {/* <label className="login-label">Quantity</label>
+                    <input type="number" placeholder="Trainer quantity" name="quantity Available" onChange = {handleChange} required value={currentTrainer.quantityAvailable}  autoComplete="off" /> */}
 
-                <label className="login-label">Price</label>
-                <input type="number" placeholder="Trainer Price" name="price" required onChange = {handleChange} value={currentTrainer.price}  autoComplete="off" />
+                    <label className="login-label">Price</label>
+                    <input type="number" placeholder="Trainer Price" name="price" required onChange = {handleChange} value={currentTrainer.price}  autoComplete="off" />
             
-                <button type="submit" className="add-trainer-button">Add Trainer</button>
-
+                    <button type="submit" className="add-trainer-button">Add Trainer</button>
 
             </form>
         </div>
