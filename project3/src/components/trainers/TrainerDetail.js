@@ -127,7 +127,8 @@ const TrainerDetail = ({trainer, customer}) => {
                     </div>
                 </div>
             </div>
-            <button onClick={addTrainerToCart} className="purchase">Add to cart</button>
+            <button onClick={addTrainerToCart} className="purchase">Add to Cart</button>
+
 
             
         </div>

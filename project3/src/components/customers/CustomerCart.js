@@ -17,14 +17,14 @@ const CustomerCart = ({customer}) => {
 
     if(!customer){
         return <p className="login-message">
-            Please Login
+            Please Sign in to View Your Cart
         </p>
     }
 
     
     else if(customer.cart.length === 0){
         return <h1 className="cart-empty">
-            Cart Currently empty 	&#128546;
+            Cart Currently Empty 	&#128546;
         </h1>
     }
 
@@ -41,7 +41,7 @@ const CustomerCart = ({customer}) => {
                 <div className="cart-item">
                     <Trainer trainer={trainer} />
                    
-                    <button className="remove-button" onClick={() => {deleteFromCart(trainer)}}>Remove from cart <i>{trash}</i></button>
+                    <button className="remove-button" onClick={() => {deleteFromCart(trainer)}}>Remove from Cart <i>{trash}</i></button>
                 </div>
             </li>
             )
@@ -68,7 +68,10 @@ const CustomerCart = ({customer}) => {
         <>
                 <Link to ="/"><button className="back-button">Continue Shopping</button></Link>
                 <h1 className="cart-heading">
-                    Your Cart:
+                    Your Cart:&nbsp;
+                    <h1 className="total-message">
+                    SubTotal: £{subtotal.toFixed(2)}
+                </h1>
                 </h1>
 
                 <h3 className="checkout-message">Checkout: &nbsp; <Checkout customer={customer} price={subtotal}/></h3>
@@ -76,9 +79,9 @@ const CustomerCart = ({customer}) => {
                     {customerTrainerNodes}
                 
                 </ul>
-                <h1 className="total-message">
+                {/* <h1 className="total-message">
                     SubTotal: £{subtotal.toFixed(2)}
-                </h1>
+                </h1> */}
             
 
             {console.log(customer.cart)} 

@@ -16,7 +16,7 @@ const CustomerDetail = ({customer, onUpdate}) => {
 
     if(!customer){
         return <p className="login-message">
-            Login to View Your Details
+            Please Sign in to View Your Account Details
         </p>
     }
 
@@ -74,9 +74,9 @@ const CustomerDetail = ({customer, onUpdate}) => {
             <h1>{customer.name}</h1>
             <img src={customer.avatar} className="customer-avatar"></img>
             <div className="customer-button-container">
-                <button className="customer-button" onClick={logOut}>Log out</button>
-                <Link to ={"/"} customer={customer}><button className="customer-button">Go shopping</button></Link>
+                <Link to ={"/"} customer={customer}><button className="customer-button">Go Shopping</button></Link>
                 <Link to={editUrl}><button type="button" className="customer-button">Edit Account</button></Link>
+                <button className="customer-button" onClick={logOut}>Sign out</button>
             </div>
         </div>
 

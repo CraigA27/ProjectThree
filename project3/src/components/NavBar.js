@@ -20,11 +20,12 @@ const NavBar = () => {
                         <a href="/customers">Sign In / Create Account</a>
                     </li>
                     <li className="navLink">
-                        <a href="/customers/cart"><i>{shoppingCart}</i></a>
-                    </li>
-                    <li className="navLink">
                         <a href="/customers/account"><i>{user}</i></a>
                     </li>
+                    <li className="navLink">
+                        <a href="/customers/cart"><i>{shoppingCart}</i></a>
+                    </li>
+
                 </ul>
         </header>
     )
