@@ -12,7 +12,7 @@ const AdminDetail = ({trainers, administrator}) => {
             Please login
         </p>
     }
-    if(administrator.loggedin === false){
+    else if(!administrator.loggedIn){
         return(
             <p>
                 Please Login

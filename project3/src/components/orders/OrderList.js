@@ -11,7 +11,15 @@ const OrderList = ({orders, administrator, onDelete}) => {
     const [filter, setFilter] = useState("")
 
 
-    if(administrator.loggedin === false){
+    if(!administrator){
+        return(
+            <p>
+                Please Login
+            </p>
+        ) 
+    }
+
+    if(!administrator.loggedIn){
         return(
             <p>
                 Please Login

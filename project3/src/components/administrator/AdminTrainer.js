@@ -16,8 +16,15 @@ const AdminTrainer = ({administrator, trainers}) => {
     })
 
 
+    if(!administrator){
+        return(
+            <p>
+                Loading
+            </p>
+        )
+    }
 
-    if(administrator.loggedin === false){
+    if(!administrator.loggedIn){
         return(
             <p>
                 Please Login
