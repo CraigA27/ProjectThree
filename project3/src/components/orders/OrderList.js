@@ -39,8 +39,10 @@ const OrderList = ({orders, administrator, onDelete}) => {
             placeholder="Search by Customer Email"
             onChange={(e) => {setFilter(e.target.value)}}
             className="search-bar"/>
-            
+            <div className="order-nodes">
             {orderNodes}
+            </div>
+            
         </div>
             
         

@@ -3,3 +3,9 @@
     background-color: lightsteelblue;
     padding: 30px;
 }
+
+.order-nodes{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+}
