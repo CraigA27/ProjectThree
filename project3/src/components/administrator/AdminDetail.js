@@ -22,14 +22,14 @@ const AdminDetail = ({trainers, administrator}) => {
 
     const update = function(administrator){
         const request = new Request();
-        const url = "/administrators/" + administrator.id;
+        const url = "/api/administrators/" + administrator.id;
         request.patch(url, administrator)
         .then(() => window.location = "/administrators")
     }
 
     const handleDelete = function(id){
         const request = new Request()
-        const url = "/trainers/" + id
+        const url = "/api/trainers/" + id
         request.delete(url)
         .then(() => window.location = "/administrators/admin")
     }

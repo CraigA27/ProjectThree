@@ -23,10 +23,10 @@ const ShopContainer = () => {
 
     const requestAll = function(){
         const request = new Request();
-        const trainerPromise = request.get('/trainers')
-        const customerPromise = request.get('/customers')
-        const administratorPromise = request.get('/administrators')
-        const ordersPromise = request.get("/orders")
+        const trainerPromise = request.get('/api/trainers')
+        const customerPromise = request.get('/api/customers')
+        const administratorPromise = request.get('/api/administrators')
+        const ordersPromise = request.get("/api/orders")
 
         Promise.all([trainerPromise, customerPromise, administratorPromise, ordersPromise])
         .then((data) => {
@@ -55,7 +55,7 @@ const ShopContainer = () => {
 
     const handleDelete = function(id){
         const request = new Request();
-        const url = "/orders/" + id
+        const url = "/api/orders/" + id
         request.delete(url)
         .then(() => window.location = "/orders")
       }
@@ -63,13 +63,13 @@ const ShopContainer = () => {
 
     const handleCustomerPost = function(customer){
         const request = new Request();
-        request.post("/customers", customer)
+        request.post("/api/customers", customer)
         .then(() => window.location = "/customers/account")
     }
 
     const handleTrainerPost = function(trainer){
         const request = new Request();
-        request.post("/trainers", trainer)
+        request.post("/api/trainers", trainer)
         .then(() => {
             window.location = "/administrators/admin"
         })
@@ -77,7 +77,7 @@ const ShopContainer = () => {
 
     const handleCustomerUpdate = function(customer){
         const request = new Request();
-        request.patch("/customers" + customer.id, customer)
+        request.patch("/api/customers" + customer.id, customer)
         .then(() => window.location = "/customers/" + customer.id)
     }
 

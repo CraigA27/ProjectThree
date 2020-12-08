@@ -16,14 +16,14 @@ const Checkout = ({customer, price}) => {
 
     const onChange = function(customer){
         const request = new Request();
-        const url = "/customers/" + customer.id;
+        const url = "/api/customers/" + customer.id;
         request.patch(url, customer)
         .then(() => window.location = "/customers/cart")
     }
 
     const onPost = function(order){
         const request = new Request();
-        request.post("/orders", order)
+        request.post("/api/orders", order)
         .then((order) => {customer.previousOrders.push(order)})
         .then(() => customer.cart = [])
         .then(() => onChange(customer))

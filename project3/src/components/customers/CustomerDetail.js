@@ -14,15 +14,17 @@ import './customer.css'
 
 const CustomerDetail = ({customer, onUpdate}) => {
 
-    if(!customer){
+    if(!customer || !customer.loggedIn){
         return <p className="login-message">
             Please Sign in to View Your Account Details
         </p>
     }
 
+    
+
     const onChange = function(customer){
         const request = new Request();
-        const url = "/customers/" + customer.id;
+        const url = "/api/customers/" + customer.id;
         request.patch(url, customer)
         .then(() => window.location = "/customers")
     }
@@ -35,7 +37,7 @@ const CustomerDetail = ({customer, onUpdate}) => {
 
     const onBuy = function(customer){
         const request = new Request();
-        const url = "/customers/" + customer.id;
+        const url = "/api/customers/" + customer.id;
         request.patch(url, customer)
         .then(() => window.location = "/customers/cart")
     }

@@ -30,7 +30,7 @@ const CustomerCart = ({customer}) => {
 
     const onChange = function(customer){
         const request = new Request();
-        const url = "/customers/" + customer.id;
+        const url = "/api/customers/" + customer.id;
         request.patch(url, customer)
         .then(() => window.location = "/customers/cart")
     }

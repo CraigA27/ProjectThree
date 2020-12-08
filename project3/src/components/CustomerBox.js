@@ -32,7 +32,7 @@ const CustomerBox = ({customers}) => {
 
     const onUpdate = function(customer){
         const request = new Request();
-        const url = "/customers/" + customer.id;
+        const url = "/api/customers/" + customer.id;
         request.patch(url, customer)
         .then(() => window.location = "/customers/" + customer.id)
     }

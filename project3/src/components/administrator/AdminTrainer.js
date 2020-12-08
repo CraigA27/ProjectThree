@@ -15,9 +15,15 @@ const AdminTrainer = ({administrator, trainers}) => {
         price: 0
     })
 
+    if(!administrator){
+        return(
+            <p>
+                Loading..
+            </p>
+        )
+    }
 
-
-    if(administrator.loggedin === false){
+    if(!administrator.loggedIn){
         return(
             <p>
                 Please Login
@@ -37,7 +43,7 @@ const AdminTrainer = ({administrator, trainers}) => {
 
     const handleTrainerPost = function(trainer){
         const request = new Request();
-        request.post("/trainers", trainer)
+        request.post("/api/trainers", trainer)
         .then(() => {
             window.location = "/administrators/admin"
         })

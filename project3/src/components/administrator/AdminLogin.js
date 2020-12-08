@@ -50,7 +50,7 @@ const AdminLogin = ({administrator}) => {
 
     const onUpdate = function(administrator){
         const request = new Request();
-        const url = "/administrators/" + administrator.id;
+        const url = "/api/administrators/" + administrator.id;
         request.patch(url, administrator)
         .then(() => window.location = "/administrators/admin")
     }
