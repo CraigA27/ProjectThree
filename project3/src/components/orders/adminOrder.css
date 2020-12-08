@@ -1,6 +1,5 @@
 .administrator-recent-orders{
+    margin-top: 0;
     background-color: lightsteelblue;
-    height: 100vw;
-    background-size: 1000vh;
     padding: 30px;
 }
