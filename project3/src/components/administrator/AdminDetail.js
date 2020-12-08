@@ -12,6 +12,13 @@ const AdminDetail = ({trainers, administrator}) => {
             Please login
         </p>
     }
+    if(administrator.loggedin === false){
+        return(
+            <p>
+                Please Login
+            </p>
+        )
+    }
 
     const update = function(administrator){
         const request = new Request();

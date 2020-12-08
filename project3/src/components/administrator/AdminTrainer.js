@@ -15,6 +15,17 @@ const AdminTrainer = ({administrator, trainers}) => {
         price: 0
     })
 
+
+
+    if(administrator.loggedin === false){
+        return(
+            <p>
+                Please Login
+            </p>
+        )
+    }
+
+  
     const handleChange = function(event){
         let propertyName = event.target.name;
         let input = {...currentTrainer}

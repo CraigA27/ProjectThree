@@ -10,6 +10,17 @@ const OrderList = ({orders, administrator, onDelete}) => {
 
     const [filter, setFilter] = useState("")
 
+
+    if(administrator.loggedin === false){
+        return(
+            <p>
+                Please Login
+            </p>
+        )
+    }
+
+    
+
     const close = <FontAwesomeIcon icon={faTimes} />
 
     const filterdOrders = orders.filter((order) => {
