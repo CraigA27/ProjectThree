@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faUser, faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+import logo from "../assets/logo1.png"
 
 const NavBar = () => {
     const shoppingCart = <FontAwesomeIcon icon={faShoppingCart} />
@@ -10,7 +11,7 @@ const NavBar = () => {
     return(
         <header className="nav-container">
             <div className="logo-container">
-            <a href="/"><img src="https://png2.cleanpng.com/sh/dc599486ac1265438bd34bdee36ab0a6/L0KzQYm3UsAzN6VufZH0aYP2gLBuTgNvbZJwfeR8LYPrf7a0lvVkfJD3ReRAbn7sfri0kBhwbaQyTdMCNHTlSLOCVPJlOGgzUaoANEi3SIe4VcE4PmE8UKMENkC8QnB3jvc=/kisspng-sneakers-shoe-vector-running-shoes-5a74db8b94bd07.9854848615176078196092.png" className="header-logo"/></a>
+            <a href="/"><img src={logo} className="header-logo"/></a>
             </div>
                 <ul className="nav-links">
                     <li className="navLink">
