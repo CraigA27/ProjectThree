@@ -29,7 +29,7 @@ const OrderList = ({orders, administrator, onDelete}) => {
     return(
 
         <>
-        <div className="administrator-recent-oders">
+        <div className="administrator-recent-orders">
             <input 
             type="search"
             placeholder="Search by Customer Email"

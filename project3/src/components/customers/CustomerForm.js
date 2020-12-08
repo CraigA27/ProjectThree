@@ -78,16 +78,18 @@ const CustomerForm = ({customer, onCreate, onUpdate}) => {
             <button type="submit" className="signup-button">{buttonText}</button>
         </form>
         
-        <h3>Select an Avatar</h3>
-        <img src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png" onClick={() => {
-                setAvatar("https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png" )
-            }} className="batman-avatar"></img>
+        <h3 className="avatar-heading">Select an Avatar</h3>
+        <div className="avatar-icon-container">
+            <img src="https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png" onClick={() => {
+                    setAvatar("https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png" )
+                }} className="avatar-icon"></img>
 
-        <img src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png" onClick={() => {setAvatar("https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png")}}></img>
+            <img className="avatar-icon" src="https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png" onClick={() => {setAvatar("https://cdn.iconscout.com/icon/free/png-256/avatar-370-456322.png")}}></img>
 
 
-        <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-373-456325.png" onClick={() => setAvatar("https://cdn.iconscout.com/icon/free/png-512/avatar-373-456325.png")} className="green-avatar-female">
-        </img>
+            <img src="https://cdn.iconscout.com/icon/free/png-512/avatar-373-456325.png" onClick={() => setAvatar("https://cdn.iconscout.com/icon/free/png-512/avatar-373-456325.png")} className="avatar-icon">
+            </img>
+        </div>
         </>
     )
 }
