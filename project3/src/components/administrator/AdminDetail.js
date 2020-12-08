@@ -62,10 +62,12 @@ const AdminDetail = ({trainers, administrator}) => {
         <>
             
             <div className="admin-view">
+                <div className="admin-button-links">
                 <Link to = {createUrl}><button className="administrator-add-trainer">Add a new Trainer </button></Link>
-
                 <Link to={orderUrl}><button className="view-order-button">View Recent Orders</button></Link>
                 <button className="logout-button" onClick={loggOut}>Log out</button>
+                </div>
+                
                 <div className="administrator-trainer-nodes">
                     {trainerNodes}
                 </div>
