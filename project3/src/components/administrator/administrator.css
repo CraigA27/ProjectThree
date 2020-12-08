@@ -1,5 +1,5 @@
 .admin-view{
-    background-color: lightsteelblue;
+    background-color: rgb(210, 239, 255);
 }
 
 
@@ -45,8 +45,16 @@
 }
 
 .administrator-add-trainer{
-
-    margin-top: 30px;
+    margin:5px;
+    width: 100px;
+    padding: 1rem 0rem;
+    background-color: #f54642;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bolder;
+    margin-bottom: 3%;
 }
 
 .add-a-trainer{
@@ -87,3 +95,46 @@
     font-weight: bolder;
 }
 
+.view-order-button {
+    margin:5px;
+    width: 100px;
+    padding: 1rem 0rem;
+    background-color: #f54642;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bolder;
+    margin-bottom: 3%;
+}
+
+.logout-button {
+    margin:5px;
+    width: 100px;
+    padding: 1rem 0rem;
+    background-color: #f54642;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bolder;
+    margin-bottom: 3%;
+}
+
+.delete-trainer-button {
+    margin:5px;
+    width: 100px;
+    padding: 1rem 0rem;
+    background-color: #f54642;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: bolder;
+    margin-bottom: 3%;
+}
+
+.admin-login-header {
+    display: flex;
+    justify-content: center;
+}

@@ -36,7 +36,7 @@ const AdminDetail = ({trainers, administrator}) => {
         <li key={index} className="administrator-trainer-item">
 	        <div className="administrator-trainer-preview">
 	            <Trainer trainer={trainer} />
-                <button onClick={() => deleteTrainer(trainer)}>Delete</button>
+                <button className="delete-trainer-button" onClick={() => deleteTrainer(trainer)}>Delete</button>
 	        </div>
 	    </li>
         )
@@ -57,8 +57,8 @@ const AdminDetail = ({trainers, administrator}) => {
             <div className="admin-view">
                 <Link to = {createUrl}><button className="administrator-add-trainer">Add a new Trainer </button></Link>
 
-                <Link to={orderUrl}><button>View Recent Orders</button></Link>
-                <button onClick={loggOut}>Log out</button>
+                <Link to={orderUrl}><button className="view-order-button">View Recent Orders</button></Link>
+                <button className="logout-button" onClick={loggOut}>Log out</button>
                 <div className="administrator-trainer-nodes">
                     {trainerNodes}
                 </div>
