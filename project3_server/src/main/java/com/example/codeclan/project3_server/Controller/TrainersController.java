@@ -1,5 +1,6 @@
 package com.example.codeclan.project3_server.Controller;
 
+import com.example.codeclan.project3_server.Models.Customer;
 import com.example.codeclan.project3_server.Models.Order;
 import com.example.codeclan.project3_server.Models.Trainer;
 import com.example.codeclan.project3_server.Repository.OrderRepository;
@@ -30,9 +31,22 @@ public class TrainersController {
         return new ResponseEntity<>(trainerRepository.findById(id), HttpStatus.OK);
     }
 
+    @PostMapping(value = "/trainers")
+    public ResponseEntity<Trainer> postTrainer(@RequestBody Trainer trainer){
+        trainerRepository.save(trainer);
+        return new ResponseEntity<>(trainer, HttpStatus.CREATED);
+    }
+
     @PatchMapping(value = "/trainers/{id}")
     public ResponseEntity<Trainer> editSpecificTrainer(@RequestBody Trainer trainer){
         trainerRepository.save(trainer);
         return new ResponseEntity<>(trainer, HttpStatus.OK);
+    }
+
+    @DeleteMapping(value = "/trainers/{id}")
+    public ResponseEntity<Trainer> deleteTrainer(@PathVariable Long id){
+        Trainer found = trainerRepository.getOne(id);
+        trainerRepository.delete(found);
+        return new ResponseEntity<>(null, HttpStatus.OK);
     }
 }

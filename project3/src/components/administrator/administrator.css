@@ -1,0 +1,87 @@
+.admin-view{
+    background-color: lightsteelblue;
+}
+
+
+.administrator-trainer-nodes{
+
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: 60px;
+    padding: 10px; 
+    align-self: center;
+    align-content: center; 
+
+}
+
+.administrator-trainer-item{
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: 60px;
+    padding: 10px; 
+    align-self: center;
+    align-content: center
+
+}
+
+.administrator-trainer-preview{
+
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    height: 500px;
+}
+
+.administrator-add-trainer{
+
+    margin-top: 30px;
+}
+
+.add-a-trainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* margin-top: 40px; */
+    width: 800px;
+    height: fit-content;
+    border-radius: 5px;
+    background-color: white;
+    padding: 20px;
+    border: 1px solid lightgray;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.2);
+}
+
+.add-a-trainer-page{
+    background-color: lightsteelblue;
+    width: 100%;
+    background-size: 300%;
+}
+
+.add-trainer-button{
+    margin-top: 1rem;
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    background-color: #f54642;
+    border: none;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bolder;
+}

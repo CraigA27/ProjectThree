@@ -1,13 +1,7 @@
 package com.example.codeclan.project3_server.Component;
 
-import com.example.codeclan.project3_server.Models.Card;
-import com.example.codeclan.project3_server.Models.Customer;
-import com.example.codeclan.project3_server.Models.Order;
-import com.example.codeclan.project3_server.Models.Trainer;
-import com.example.codeclan.project3_server.Repository.CardRepository;
-import com.example.codeclan.project3_server.Repository.CustomerRepository;
-import com.example.codeclan.project3_server.Repository.OrderRepository;
-import com.example.codeclan.project3_server.Repository.TrainerRepository;
+import com.example.codeclan.project3_server.Models.*;
+import com.example.codeclan.project3_server.Repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -31,6 +25,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     OrderRepository orderRepository;
+
+    @Autowired
+    AdministratorRepository administratorRepository;
 
     public DataLoader() {
     }
@@ -189,6 +186,10 @@ public class DataLoader implements ApplicationRunner {
         Order camNikeOrder = cam.buy();
         orderRepository.save(camNikeOrder);
         customerRepository.save(cam);
+
+
+        Administrator administrator = new Administrator("admin", "codeclan");
+        administratorRepository.save(administrator);
 
 
 

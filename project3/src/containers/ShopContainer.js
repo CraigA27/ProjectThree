@@ -8,22 +8,28 @@ import CustomerBox from "../components/CustomerBox"
 import CustomerDetail from "../components/customers/CustomerDetail.js"
 import CustomerForm from '../components/customers/CustomerForm';
 import CustomerCart from "../components/customers/CustomerCart";
+import AdminLogin from "../components/administrator/AdminLogin";
+import AdminDetail from '../components/administrator/AdminDetail';
+import AdminTrainer from '../components/administrator/AdminTrainer';
 
 
 const ShopContainer = () => {
 
     const [trainers, setTrainers] = useState([]);
     const [customers, setCustomers] = useState([]);
+    const [administrators, setAdministrator] = useState([]);
 
     const requestAll = function(){
         const request = new Request();
         const trainerPromise = request.get('/trainers')
         const customerPromise = request.get('/customers')
+        const administratorPromise = request.get('/administrators')
 
-        Promise.all([trainerPromise, customerPromise])
+        Promise.all([trainerPromise, customerPromise, administratorPromise])
         .then((data) => {
         setTrainers(data[0])
         setCustomers(data[1])
+        setAdministrator(data[2])
         })
     }
 
@@ -48,6 +54,14 @@ const ShopContainer = () => {
         const request = new Request();
         request.post("/customers", customer)
         .then(() => window.location = "/customers/account")
+    }
+
+    const handleTrainerPost = function(trainer){
+        const request = new Request();
+        request.post("/trainers", trainer)
+        .then(() => {
+            window.location = "/administrators/admin"
+        })
     }
 
     const handleCustomerUpdate = function(customer){
@@ -97,9 +111,6 @@ const ShopContainer = () => {
             }} />
 
 
-            
-            
-
 
             <Route exact path="/customers/:id/edit" render={(props) => {
                 const id = props.match.params.id;
@@ -111,6 +122,30 @@ const ShopContainer = () => {
                 return <CustomerBox customers={customers} />
             }} />
 
+            <Route exact path ="/administrators/new" render ={() => {
+                return <AdminTrainer 
+                    administrator = {administrators[0]}
+                    trainers = {trainers}
+                    
+                />
+            }} />
+            
+            <Route exact path = "/administrators/admin" render={() => {
+                const administrator = administrators[0]
+                return <AdminDetail
+                 administrator={administrator}
+                 trainers = {trainers}
+                 />
+            }} />
+            
+
+            <Route exact path = "/administrators" render={() => {
+                return <AdminLogin administrator={administrators[0]} />
+            }} />
+
+            
+            
+            
 
             <Route render={() => {
                 return <ShopBox trainers={trainers} customer = {customerLoggedIn[0]}/>
