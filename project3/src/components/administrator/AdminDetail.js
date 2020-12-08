@@ -48,6 +48,8 @@ const AdminDetail = ({trainers, administrator}) => {
     }
 
     const createUrl = "/administrators/new"
+
+    const orderUrl ="/orders"
     return(
         
         <>
@@ -55,6 +57,7 @@ const AdminDetail = ({trainers, administrator}) => {
             <div className="admin-view">
                 <Link to = {createUrl}><button className="administrator-add-trainer">Add a new Trainer </button></Link>
 
+                <Link to={orderUrl}><button>View Recent Orders</button></Link>
                 <button onClick={loggOut}>Log out</button>
                 <div className="administrator-trainer-nodes">
                     {trainerNodes}

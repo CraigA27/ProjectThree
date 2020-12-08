@@ -11,6 +11,7 @@ import CustomerCart from "../components/customers/CustomerCart";
 import AdminLogin from "../components/administrator/AdminLogin";
 import AdminDetail from '../components/administrator/AdminDetail';
 import AdminTrainer from '../components/administrator/AdminTrainer';
+import OrderList from '../components/orders/OrderList'
 
 
 const ShopContainer = () => {
@@ -18,18 +19,21 @@ const ShopContainer = () => {
     const [trainers, setTrainers] = useState([]);
     const [customers, setCustomers] = useState([]);
     const [administrators, setAdministrator] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     const requestAll = function(){
         const request = new Request();
         const trainerPromise = request.get('/trainers')
         const customerPromise = request.get('/customers')
         const administratorPromise = request.get('/administrators')
+        const ordersPromise = request.get("/orders")
 
-        Promise.all([trainerPromise, customerPromise, administratorPromise])
+        Promise.all([trainerPromise, customerPromise, administratorPromise, ordersPromise])
         .then((data) => {
         setTrainers(data[0])
         setCustomers(data[1])
         setAdministrator(data[2])
+        setOrders(data[3])
         })
     }
 
@@ -48,6 +52,13 @@ const ShopContainer = () => {
     const customerLoggedIn = customers.filter((customer) => {
         return customer.loggedIn === true;
     })
+
+    const handleDelete = function(id){
+        const request = new Request();
+        const url = "/orders/" + id
+        request.delete(url)
+        .then(() => window.location = "/orders")
+      }
     
 
     const handleCustomerPost = function(customer){
@@ -141,6 +152,12 @@ const ShopContainer = () => {
 
             <Route exact path = "/administrators" render={() => {
                 return <AdminLogin administrator={administrators[0]} />
+            }} />
+
+            <Route exact path = "/orders" render={() => {
+                return <OrderList administrator={administrators[0]} orders = {orders}
+                onDelete = {handleDelete}
+                />
             }} />
 
             
