@@ -88,7 +88,7 @@ const AdminLogin = ({administrator}) => {
 
         <>
             <h1 className="admin-login-header">Administrative Login</h1>
-            <form onSubmit={handleSubmit} className="login">
+            <form onSubmit={handleSubmit} className="admin-login">
                 <label className="login-label">Username</label>
                 <input type="text" placeholder="Username" name="username" required onChange={handleChange} value={userInput.username} autoComplete="off" />
 
