@@ -42,7 +42,7 @@ const TrainerDetail = ({trainer, customer}) => {
 
     const onUpdate = function(customer){
         const request = new Request();
-        const url = "/api/customers/" + customer.id;
+        const url = "/customers/" + customer.id;
         request.patch(url, customer)
         .then(() => console.log("Item Added to cart"))
     }

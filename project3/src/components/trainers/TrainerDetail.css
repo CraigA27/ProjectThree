@@ -34,6 +34,7 @@
 
 .sneaker img{
     width: 20rem;
+    padding: 10px;
     z-index: 2;
     transition: all 0.5s ease-out;
 }
