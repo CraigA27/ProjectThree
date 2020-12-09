@@ -12,7 +12,9 @@ const AdminDetail = ({trainers, administrator}) => {
             Loading
         </p>
     }
-    if(!administrator.loggedIn){
+ 
+     if(!administrator.loggedIn){
+
         return(
             <p>
                 Please Login

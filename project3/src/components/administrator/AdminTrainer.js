@@ -23,6 +23,7 @@ const AdminTrainer = ({administrator, trainers}) => {
         )
     }
 
+
     if(!administrator.loggedIn){
         return(
             <p>
