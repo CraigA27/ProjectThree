@@ -9,10 +9,10 @@ const AdminDetail = ({trainers, administrator}) => {
 
     if(!administrator){
         return <p>
-            Please login
+            Loading
         </p>
     }
-    if(administrator.loggedin === false){
+    if(!administrator.loggedIn){
         return(
             <p>
                 Please Login
