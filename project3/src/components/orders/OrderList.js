@@ -14,15 +14,10 @@ const OrderList = ({orders, administrator, onDelete}) => {
     if(!administrator){
         return(
             <p>
-<<<<<<< HEAD
                 Loading...
             </p>
         )
-=======
-                Please Login
-            </p>
-        ) 
->>>>>>> development
+
     }
 
     if(!administrator.loggedIn){
